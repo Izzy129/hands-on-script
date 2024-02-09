@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Script {
     public static void main(String[] args) throws IOException {
-        String directoryPath = "."; // specify your directory path here
+        String directoryPath = "."; // where our .dat files usually are
 
         ArrayList<String> output = new ArrayList<>();
 
@@ -27,13 +27,13 @@ public class Script {
         }
 
         for (int i = 0; i < output.size(); i++) {
-
+            // removes the ./ and .dat from file name
             output.set(i, output.get(i).replaceAll("(\\.\\\\)|(.dat)", ""));
             // System.out.println(output.get(i));
-            try {
+            try { // create .java file
                 Files.createFile(Paths.get("src\\" + output.get(i) + ".java"));
                 System.out.println("File " + output.get(i) + ".java created successfully\n");
-            } catch (IOException e) {
+            } catch (IOException e) { // maybe have better error handling
                 System.out.println("An error occurred while making file " + output.get(i) + ".java");
                 System.out.println(e + "\n");
             }
