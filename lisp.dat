@@ -1,0 +1,5 @@
+(SUB 6 3)
+(ADD 3 7 5)
+(MUL 5 3 2 6)
+(SUB 7(ADD 1 2))
+(ADD 4 6(MUL 4 5(DIV 8 4)))
